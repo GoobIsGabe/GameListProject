@@ -1,0 +1,26 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+"-//Hibernate/Hibernate Mapping DTD//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+
+<hibernate-mapping>
+   <class name = "com.revature.model.User" table = "User">
+
+      
+      <id name = "user_id" type = "int" column = "user_id">
+         <generator class="native"/>
+      </id>
+      
+      <property name = "username" column = "username" type = "string"/>
+      <property name = "pword" column = "pword" type = "string"/>
+      <property name = "kind" column = "kind" type = "string"/>
+      <property name = "favgame" column = "favgame" type = "string"/>
+      <property name = "first_name" column = "first_name" type = "string"/>
+      <property name = "last_name" column = "last_name" type = "string"/>
+      <property name = "email" column = "email" type = "string"/>
+      <property name = "profpic" column = "profpic" type = "string"/>
+      
+   </class>
+
+   
+</hibernate-mapping>
