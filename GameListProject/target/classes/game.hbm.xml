@@ -1,0 +1,21 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+"-//Hibernate/Hibernate Mapping DTD//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+
+<hibernate-mapping>
+   <class name = "com.revature.model.Game" table = "Game">
+
+      
+      <id name = "game_id" type = "int" column = "game_id">
+         <generator class="native"/>
+      </id>
+      
+      <property name = "gamename" column = "gamename" type = "string"/>
+      <property name = "progress" column = "progress" type = "string"/>
+      <property name = "image" column = "image" type = "string"/>
+      
+   </class>
+
+   
+</hibernate-mapping>
