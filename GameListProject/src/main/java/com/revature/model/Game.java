@@ -1,26 +1,36 @@
 package com.revature.model;
 
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "game")
+@Table(name = "game_table")
 public class Game {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "game_id")
 	private int game_id;
+	
 	@Column(name = "gamename")
 	private String gamename;
+	
 	@Column(name = "progress")
 	private String progress;
-	@Column(name = "image")
-	private String image;
+	
+	@ManyToOne
+	@JoinColumn(name="user_id")
+	private User user;
+	
+	
+	//GETTERS & SETTERS
 	public int getGame_id() {
 		return game_id;
 	}
@@ -39,11 +49,15 @@ public class Game {
 	public void setProgress(String progress) {
 		this.progress = progress;
 	}
-	public String getImage() {
-		return image;
+	public User getUser() {
+		return user;
 	}
-	public void setImage(String image) {
-		this.image = image;
+	public void setUser(User user) {
+		this.user = user;
 	}
+
+	
+	
+
 	
 }
