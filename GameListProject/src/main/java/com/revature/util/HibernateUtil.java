@@ -7,6 +7,9 @@ import org.hibernate.cfg.Configuration;
 import org.hibernate.cfg.Environment;
 import org.hibernate.service.ServiceRegistry;
 
+import com.revature.model.Game;
+import com.revature.model.User;
+
 public class HibernateUtil {
     private static SessionFactory sessionFactory;
     public static SessionFactory getSessionFactory() {
@@ -22,8 +25,10 @@ public class HibernateUtil {
                 settings.put(Environment.DIALECT, "org.hibernate.dialect.PostgreSQLDialect");
                 settings.put(Environment.SHOW_SQL, "true");
                settings.put(Environment.CURRENT_SESSION_CONTEXT_CLASS, "thread");
-                settings.put(Environment.HBM2DDL_AUTO, "update");
+                settings.put(Environment.HBM2DDL_AUTO, "create");
                 configuration.setProperties(settings);
+                configuration.addAnnotatedClass(User.class);
+                configuration.addAnnotatedClass(Game.class);
                 
                 ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder()
                     .applySettings(configuration.getProperties()).build();

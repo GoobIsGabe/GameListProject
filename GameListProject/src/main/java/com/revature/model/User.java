@@ -1,36 +1,46 @@
 package com.revature.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "user")
+@Table(name = "user_table")
 public class User {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "user_id")
 	private int user_id;
+	
 	@Column(name = "username")
 	private String username;
 	@Column(name = "pword")
 	private String pword;
-	@Column(name = "kind")
-	private String kind;
-	@Column(name = "favgame")
-	private String favgame;
+	
 	@Column(name = "first_name")
 	private String first_name;
+	
 	@Column(name = "last_name")
 	private String last_name;
+	
 	@Column(name = "email")
 	private String email;
-	@Column(name = "profpic")
-	private String profpic;
+	
+	//MAPPING
+	@OneToMany(mappedBy="user")
+	private List<Game> gameList = new ArrayList<Game>();
+		
+	
+	//GETTERS & SETTERS
 	public int getUser_id() {
 		return user_id;
 	}
@@ -49,18 +59,7 @@ public class User {
 	public void setPword(String pword) {
 		this.pword = pword;
 	}
-	public String getKind() {
-		return kind;
-	}
-	public void setKind(String kind) {
-		this.kind = kind;
-	}
-	public String getFavgame() {
-		return favgame;
-	}
-	public void setFavgame(String favgame) {
-		this.favgame = favgame;
-	}
+
 	public String getFirst_name() {
 		return first_name;
 	}
@@ -79,11 +78,11 @@ public class User {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public String getProfpic() {
-		return profpic;
+	public List<Game> getGameList() {
+		return gameList;
 	}
-	public void setProfpic(String profpic) {
-		this.profpic = profpic;
+	public void setGameList(List<Game> gameList) {
+		this.gameList = gameList;
 	}
-	
+
 }
