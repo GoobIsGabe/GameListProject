@@ -1,15 +1,15 @@
 package com.revature.model;
 
 import java.util.ArrayList;
-import java.util.List;
 
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -35,8 +35,14 @@ public class User {
 	@Column(name = "email")
 	private String email;
 	
+	@Column(name = "nickname")
+	private String nickname;
+	
+	@Column(name = "userType")
+	private String userType;
+	
 	//MAPPING
-	@OneToMany(mappedBy="user")
+	@ManyToMany(mappedBy="user")
 	private List<Game> gameList = new ArrayList<Game>();
 		
 	
@@ -60,6 +66,12 @@ public class User {
 		this.pword = pword;
 	}
 
+	public String getNickname() {
+		return nickname;
+	}
+	public void setNickname(String nickname) {
+		this.nickname = nickname;
+	}
 	public String getFirst_name() {
 		return first_name;
 	}
@@ -77,6 +89,13 @@ public class User {
 	}
 	public void setEmail(String email) {
 		this.email = email;
+	}
+	
+	public String getUserType() {
+		return userType;
+	}
+	public void setUserType(String userType) {
+		this.userType = userType;
 	}
 	public List<Game> getGameList() {
 		return gameList;
