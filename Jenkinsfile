@@ -6,7 +6,7 @@ pipeline {
     stage('Checkout') {
       steps {
         // Get some code from a GitHub repository
-        git 'https://github.com/GoobIsGabe/GameListProject/tree/main'
+        git 'https://github.com/GoobIsGabe/GameListProject.git'
       }
     }
         stage('Build') {
