@@ -1,16 +1,12 @@
 package com.revature.model;
 
 
-import java.util.ArrayList;
-import java.util.List;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -28,9 +24,8 @@ public class Game {
 	@Column(name = "progress")
 	private String progress;
 	
-	@ManyToMany
-	@JoinColumn(name="user_id")
-	private List<User> userList = new ArrayList<User>();
+	@ManyToOne
+	private User user;
 	
 	
 	//GETTERS & SETTERS
@@ -52,11 +47,11 @@ public class Game {
 	public void setProgress(String progress) {
 		this.progress = progress;
 	}
-	public List<User> getUserList() {
-		return userList;
+	public User getUser() {
+		return user;
 	}
-	public void setUserList(List<User> userList) {
-		this.userList = userList;
+	public void setUser(User user) {
+		this.user = user;
 	}
 
 
