@@ -5,6 +5,7 @@
     -change to our desired front page login
 
 -->
+<<<<<<< HEAD
 <html>
 <head>
 <meta charset="ISO-8859-1">
@@ -30,11 +31,38 @@
 	<div class="from-group">
 	<label for="pwd">Password:</label>
 	<input [(ngModel)]="userData.password" type="password" class="form-control"  placeholder="Enter Password" name="password">
+=======
+<ng-template #content let-c="close" let-d="dismiss">
+	<div class="modal-header">
+	  <h4 class="modal-title" id="modal-basic-title">Login</h4>
+	  <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+		<span aria-hidden="true">&times;</span>
+	  </button>
+>>>>>>> f19184561d5351b702c276b1eff6b178ef3e8313
 	</div>
+	<div class="modal-body">
+		<form action="login" method="post">
 	
-	<div class="checkbox">
-		<label><input type="checkbox"> Remember me</label>
+			<div class="form-group">
+			<label for="username">Username:</label>
+			<input type="text" class="form-control" id="username" placeholder="Enter Username" name="username">
+			</div>
+			
+			<div class="from-group">
+			<label for="pwd">Password:</label>
+			<input type="password" class="form-control" id="password" placeholder="Enter Password" name="password">
+			</div>
+			
+			<div class="checkbox">
+				<label><input type="checkbox"> Remember me</label>
+			</div>
+			
+			<button type="submit" class="btn btn-info btn-lg">Login</button>
+		
+		
+		</form>
 	</div>
+<<<<<<< HEAD
 	<button (click)="loginUser()" type="button" class="btn btn-info btn-lg">Login</button>
 
 
@@ -44,3 +72,9 @@
 
 </body>
 </html>
+=======
+	
+  </ng-template>
+  
+  <button class="btn btn-lg btn-outline-primary" (click)="open(content)">Launch demo modal</button>
+>>>>>>> f19184561d5351b702c276b1eff6b178ef3e8313
