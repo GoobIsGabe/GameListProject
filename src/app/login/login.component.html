@@ -5,36 +5,42 @@
     -change to our desired front page login
 
 -->
-<ng-template #content let-c="close" let-d="dismiss">
-	<div class="modal-header">
-	  <h4 class="modal-title" id="modal-basic-title">Login</h4>
-	  <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
-		<span aria-hidden="true">&times;</span>
-	  </button>
-	</div>
-	<div class="modal-body">
-		<form action="login" method="post">
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>ERS LOGIN</title>
+<!-- BOOTSTRAP -->
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+</head>
+<body>
+<!-- 
+<div class="jumbotron text-center">
+  <h1>GameListProject</h1> 
+</div> -->
+<div *ngIf="showLogin" class="container">
+ 	<h2>Login</h2>
+	<form action="" method="post">
 	
-			<div class="form-group">
-			<label for="username">Username:</label>
-			<input type="text" class="form-control" id="username" placeholder="Enter Username" name="username">
-			</div>
-			
-			<div class="from-group">
-			<label for="pwd">Password:</label>
-			<input type="password" class="form-control" id="password" placeholder="Enter Password" name="password">
-			</div>
-			
-			<div class="checkbox">
-				<label><input type="checkbox"> Remember me</label>
-			</div>
-			
-			<button type="submit" class="btn btn-info btn-lg">Login</button>
-		
-		
-		</form>
+	<div class="form-group">
+	<label for="username">Username:</label>
+	<input [(ngModel)]="userData.username" type="text" class="form-control"  placeholder="Enter Username" name="username">
+	</div>
+
+	<div class="from-group">
+	<label for="pwd">Password:</label>
+	<input [(ngModel)]="userData.password" type="password" class="form-control"  placeholder="Enter Password" name="password">
 	</div>
 	
-  </ng-template>
-  
-  <button class="btn btn-lg btn-outline-primary" (click)="open(content)">Launch demo modal</button>
+	<div class="checkbox">
+		<label><input type="checkbox"> Remember me</label>
+	</div>
+	<button (click)="loginUser()" type="button" class="btn btn-info btn-lg">Login</button>
+
+</form>
+</div>
+
+<app-profile *ngIf="showProfile"></app-profile>
+
+
+</body>
+</html>

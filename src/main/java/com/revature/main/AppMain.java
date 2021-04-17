@@ -17,6 +17,12 @@ public class AppMain {
 		Session session = HibernateUtil.getSessionFactory().openSession();
 		transaction = session.beginTransaction();
 
+//		User us = new User();
+//		us.setFirst_name("John");
+//		us.setLast_name("Doe");
+//		session.save(us);
+//		transaction.commit();
+//		session.close();
 		
 		//Inserting Games
 		Game game1 = new Game();

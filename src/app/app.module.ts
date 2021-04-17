@@ -6,22 +6,29 @@ import { AppComponent } from './app.component';
 import { ProfileComponent } from './profile/profile.component';
 import { LoginComponent } from './login/login.component';
 import { HttpClientModule} from '@angular/common/http';
-import { NavbarComponent } from './navbar/navbar.component';
+import { FormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NavbarComponent } from './navbar/navbar.component';
+import { User } from './user';
+
 @NgModule({
   declarations: [
     AppComponent,
     ProfileComponent,
     LoginComponent,
-    NavbarComponent
+    NavbarComponent,
+    
+   
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    NgbModule
+    FormsModule,
+    NgbModule,
+    
   ],
-  providers: [],
+  providers: [User],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

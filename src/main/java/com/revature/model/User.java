@@ -1,7 +1,6 @@
 package com.revature.model;
 
 import java.util.ArrayList;
-
 import java.util.List;
 
 import javax.persistence.Column;
@@ -9,7 +8,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+<<<<<<< HEAD:src/main/java/com/revature/model/User.java
+=======
 import javax.persistence.ManyToMany;
+>>>>>>> 5e9980cd150e76572a3c4c3ff8e9670b226f424a:GameListProject/src/main/java/com/revature/model/User.java
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
