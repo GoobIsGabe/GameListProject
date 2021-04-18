@@ -14,10 +14,7 @@ export class AppComponent {
 
   //INITIALIZE DATA
   ngOnInit():void{
-    // this.http.get('place our server database here').subscribe(data => {
-    //   console.log(data);
-    //   this.gameUsers=data;
-    // })
+
   }
 
 

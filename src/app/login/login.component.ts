@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthenticateService } from './authenticate.service';
+import { AuthenticateService } from '../authenticate.service';
 import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { User } from '../user';
 
@@ -11,39 +11,50 @@ import { User } from '../user';
     providers: [NgbModalConfig, NgbModal]
 })
 export class LoginComponent implements OnInit {
-  userData:any={}
-  users:User[] | any;
+  //User Data
+  public userData:User|any = [];
+ 
+  //INPUT
+  userNAME:string = "";
+  userPASS:string = "";
+ 
+  
+  //Interface
   public showProfile = false;
   public showLogin = true;
+  public showDenied = false;
+
+
 
   constructor(config: NgbModalConfig, private modalService: NgbModal, private auth: AuthenticateService) {
     // customize default values of modals used by this component tree
     config.backdrop = 'static';
     config.keyboard = false;
   }
+
+  //GETTING DATA FROM SERVER
   ngOnInit(): void {
-    this.auth.getUsers().subscribe((data: User[]) =>{
-      console.log(data);
-      this.users = data;
-    })
+    this.auth.getUsers()
+    .subscribe((data:User[]) => {
+      this.userData = data;
+    });
   }
  
   loginUser(){
-    console.log(this.userData)
-    console.log(this.userData.username)
-    
-    if(this.userData.username=="James" && this.userData.password=="mypass123"){
-      this.showProfile = true;
-      this.showLogin = false;
+    for(let i=0; i<this.userData.length;i++){
+      if((this.userNAME == this.userData[i].username) && (this.userPASS == this.userData[i].password)){
+        console.log("SUCCESS");
+        this.showProfile=true;
+        this.showLogin=false;
+
+        this.auth.setData(this.userData[i]);
+      }
+      else{
+        this.showDenied=true;
+      }
     }
-    else{
-      this.showProfile=false;
-    }
-    // this._auth.loginUser(this.userData).subscribe(
-    // res => console.log("success "+res),
-    // err => console.log("failed "+err))
-    
-  }
+
+ }
  
   open(content: any) {
     this.modalService.open(content, {centered: true});

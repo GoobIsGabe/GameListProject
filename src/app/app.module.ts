@@ -9,7 +9,9 @@ import { HttpClientModule} from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NavbarComponent } from './navbar/navbar.component';
-import { User } from './user';
+import { UpdateComponent } from './update/update.component';
+
+
 
 @NgModule({
   declarations: [
@@ -17,6 +19,7 @@ import { User } from './user';
     ProfileComponent,
     LoginComponent,
     NavbarComponent,
+    UpdateComponent,
     
    
   ],
@@ -28,7 +31,7 @@ import { User } from './user';
     NgbModule,
     
   ],
-  providers: [User],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
