@@ -1,10 +1,3 @@
-<!-- 
-     TODO:
-    -need to change binding
-    -Add icon 
-    -change to our desired front page login
-
--->
 <html>
 <head>
 <meta charset="ISO-8859-1">
@@ -13,29 +6,32 @@
  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 </head>
 <body>
-<!-- 
-<div class="jumbotron text-center">
-  <h1>GameListProject</h1> 
-</div> -->
+
+<!--LOGIN FORM-->
 <div *ngIf="showLogin" class="container">
+	<div>
+		<!--DENIED-->
+		<div *ngIf="showDenied" class="alert alert-danger">
+			<strong>Denied!</strong> Invalid username or password, please try again.
+		</div>
+	</div>
  	<h2>Login</h2>
 	<form action="" method="post">
 	
 	<div class="form-group">
 	<label for="username">Username:</label>
-	<input [(ngModel)]="userData.username" type="text" class="form-control"  placeholder="Enter Username" name="username">
+	<input [(ngModel)]="userNAME" type="text" class="form-control"  placeholder="Enter Username" name="username">
 	</div>
 
 	<div class="from-group">
 	<label for="pwd">Password:</label>
-	<input [(ngModel)]="userData.password" type="password" class="form-control"  placeholder="Enter Password" name="password">
+	<input [(ngModel)]="userPASS" type="password" class="form-control"  placeholder="Enter Password" name="password">
 	</div>
 	
 	<div class="checkbox">
 		<label><input type="checkbox"> Remember me</label>
 	</div>
 	<button (click)="loginUser()" type="button" class="btn btn-info btn-lg">Login</button>
-
 </form>
 </div>
 

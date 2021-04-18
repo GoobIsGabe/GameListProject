@@ -13,12 +13,13 @@
   </head>
   <body>
       <!-- Contains the whole profile page -->
+      <app-navbar></app-navbar>
     <div class="container">
       <hr>
       <div class="row">
         <div class="col-6">
             <!-- We'd like to have dynamic values in here retrieving from database {{Username}} and {{nickname}} + boolean{{nickname show}}-->
-          <h1>John Doe</h1> <span>A.K.A. JoJo</span>
+          <h1>{{NICKNAME}}</h1> <span>A.K.A. {{USERNAME}}</span>
 			
         </div>
         <div class="col-6">
