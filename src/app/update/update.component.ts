@@ -10,12 +10,17 @@ import { User } from '../user';
 export class UpdateComponent implements OnInit {
   public userData:User|any = [];
 
+  //INTERFACE
+  showSuccess=false;
+  showFailed=false;
+
+  //For two-way data binding on form
   userNAME:string = "";
   userPASS:string = "";
   userEMAIL:string = "";
   userNICKNAME:string= "";
   
-
+  
   //DATA
   public USERNAME="";
   public PASSWORD="";
@@ -36,10 +41,18 @@ export class UpdateComponent implements OnInit {
   
  
   updateUser(){
+    if(this.userNAME=="" || this.userPASS=="" || this.userEMAIL=="" || this.userNICKNAME==""){
+      this.showFailed=true;
+      this.showSuccess=false;
+    }
+    else {
     this.userData.username=this.userNAME;
     this.userData.password=this.userPASS;
     this.userData.email=this.userEMAIL;
     this.userData.nickname=this.userNICKNAME;
+    this.showSuccess=true;
+    this.showFailed=false;
+    }
    return this.auth.updateUser(this.USERID,this.userData)
     .subscribe(data =>{
       console.log("UPDATED SUCCESFULLY");
@@ -48,6 +61,7 @@ export class UpdateComponent implements OnInit {
       console.log(this.userData.email)
       console.log(this.userData.nickname)
     })
+    
   }
 
 }

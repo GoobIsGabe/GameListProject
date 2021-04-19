@@ -16,6 +16,16 @@
     <hr>
     <div class="row">
     </div>
+    <!--SUCCESS-->
+    <div *ngIf="showSuccess" class="alert alert-success">
+      <strong>Success!</strong> updated profile.
+    </div>
+    <!--FAILED-->
+    <div *ngIf="showFailed" class="alert alert-danger">
+      <strong>Failed!</strong> update profile.
+    </div>
+
+    <!--UPDATE FORM-->
   <h2>Update Profile</h2>
   <form action="">
  

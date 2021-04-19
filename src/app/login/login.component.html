@@ -5,7 +5,7 @@
 <!-- BOOTSTRAP -->
 </head>
 <body>
-
+<router-outlet></router-outlet>
 <!--LOGIN FORM-->
 <div *ngIf="showLogin" class="container">
 	<div>
@@ -33,7 +33,7 @@
 	<button (click)="loginUser()" type="button" class="btn btn-info btn-lg">Login</button>
 </form>
 </div>
-<app-navbar *ngIf="showNavbar"></app-navbar>
+
 
 </body>
 </html>
