@@ -10,10 +10,10 @@
             <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
               <!-- <a routerLink="/viewProfile"><button ngbDropdownItem>View Profile</button></a> 
               <a routerLink="/updateProfile"><button ngbDropdownItem>Edit Profile</button></a>
-                <button ngbDropdownItem>Logout</button> -->
+              <a href=""><button ngbDropdownItem>Logout</button></a> -->
                 <button *ngIf="isAdmin"  ngbDropdownItem>View Users</button>
                 <button (click)="showProf()" ngbDropdownItem>View Profile</button>
-                <button (click)="showUpd()" ngbDropdownItem>Edit Profile</button>
+                <button (click)="showUpd()" ngbDropdownItem>Edit Profile</button> 
                 <a href=""><button ngbDropdownItem>Logout</button></a>
             </div>  
             <div class="container">

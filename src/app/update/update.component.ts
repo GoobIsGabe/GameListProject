@@ -14,13 +14,7 @@ export class UpdateComponent implements OnInit {
   userPASS:string = "";
   userEMAIL:string = "";
   userNICKNAME:string= "";
-
-  // user = {
-  //   "username": this.userNAME,
-  //   "nickname":this.userNICKNAME,
-  //   "email":this.userEMAIL,
-  //   "password": this.userPASS
-  // }
+  
 
   //DATA
   public USERNAME="";
@@ -40,11 +34,12 @@ export class UpdateComponent implements OnInit {
     this.USERID = this.userData.id;
   }
   
-  // handleNick(nick:any){
-  //   this.userNAME=nick;
-  // }
+ 
   updateUser(){
-    console.log(this.userData)
+    this.userData.username=this.userNAME;
+    this.userData.password=this.userPASS;
+    this.userData.email=this.userEMAIL;
+    this.userData.nickname=this.userNICKNAME;
    return this.auth.updateUser(this.USERID,this.userData)
     .subscribe(data =>{
       console.log("UPDATED SUCCESFULLY");
