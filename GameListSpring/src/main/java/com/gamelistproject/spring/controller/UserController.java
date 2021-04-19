@@ -32,7 +32,7 @@ public class UserController {
 	// http://localhost:9095/api/v2/employees
 	@GetMapping("/users")
 	public List<User> getAllUsers() {
-		return userRepository.findAll();
+		return (List<User>) userRepository.findAll();
 	}
 
 	@PostMapping("/users")
@@ -58,6 +58,7 @@ public class UserController {
 		user.setEmail(userDetails.getEmail());
 		user.setUsername(userDetails.getUsername());
 		user.setNickname(userDetails.getNickname());
+		user.setAbout(userDetails.getAbout());
 		final User updatedUser = userRepository.save(user);
 		return ResponseEntity.ok(updatedUser);
 	}

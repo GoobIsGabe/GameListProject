@@ -25,7 +25,7 @@
         <div class="col-6">
             <!-- This potential thing I'll have to change it to a button and adjust the padding and stuff -->
             <!-- a href I guess would go to a function to send request (if we were to implement this feature) -->
-          <p class="text-right"><a href="">*potential*Add as Friend</a></p>
+          <p class="text-right">{{TYPE}}</p>
         </div>
       </div>
       <hr>
@@ -38,7 +38,7 @@
             <div class="media-body">
                 <!-- About me can be some sort of "text" entity column in our user table -->
               <h5 class="mt-0">About Me</h5>
-              Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+              {{ABOUT}}
             </div>
           </div>
         </div>
@@ -47,11 +47,10 @@
             <address>
                 <!-- Maybe this could be something else, but for now, yeh this is something to store in the user table as well -->
               <strong>Favourite Game</strong><br>
-              <b>Monster Hunter Rise</b><br>
+              <b>Monster Hunter Rise {{NAME}} Yes</b><br>
               <span>First played: </span><span> <i>03/26/21</i></span><br>
-              <abbr title="Phone">Phone:</abbr> (123) 456-7890<br>
               <!-- optional boolean to show email in sql -->
-              <a href="mailto:#">first.last@example.com</a>
+              <a href="mailto:#">{{EMAIL}}</a>
             </address>
           </div>
         </div>
@@ -210,7 +209,7 @@
         <div class="container">
           <div class="row">
             <div class="col-12">
-              <p>Copyright © MyWebsite. All rights reserved.</p>
+              <p>Copyright © GameHub. All rights reserved.</p>
             </div>
           </div>
         </div>
