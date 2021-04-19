@@ -36,6 +36,13 @@ httpOption = {
       catchError(this.userData)
     )
   }
+  registerUser(data:any): Observable<User[]>{
+    return this.http.post<User>(this.ourURL, JSON.stringify(data),this.httpOption)
+       .pipe(
+         retry(1),
+         catchError(this.userData)
+       )
+     }
   getGames(): Observable<Game[]>{
     return this.http.get<Game[]>(this.ourgamesURL);
   }
