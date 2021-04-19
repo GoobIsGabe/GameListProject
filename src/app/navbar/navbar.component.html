@@ -10,7 +10,7 @@
       </button>
       <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
         <!--                <button *ngIf="isAdmin"  ngbDropdownItem>View Users</button> -->
-        <button *ngIf="isAdmin" ngbDropdownItem>View Users</button>
+        <a routerLink="/viewAll"><button *ngIf="isAdmin" ngbDropdownItem>View Users</button></a> <!--Shouldn't this work?-->
         <a routerLink="/viewProfile"><button ngbDropdownItem>View Profile</button></a>
         <a routerLink="/updateProfile"><button ngbDropdownItem>Edit Profile</button></a>
         <!-- Use these if breaks

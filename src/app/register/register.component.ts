@@ -42,6 +42,8 @@ export class RegisterComponent implements OnInit {
       this.userData = data;
     });
   }
+
+  //login component currently does not disappear when New User clicked
  
   registerUser(){
     if((this.userPASS == this.confirmPASS) && (this.eMAIL.includes("@"))){
