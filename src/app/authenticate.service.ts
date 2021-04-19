@@ -21,10 +21,11 @@ export class AuthenticateService {
   userData:User | any;
   constructor(private http: HttpClient) { }
 
+  //GETTING USER
   getUsers(): Observable<User[]>{
     return this.http.get<User[]>(this.ourURL);
   }
-
+  //UPDATING USER
   updateUser(id:number,data:any): Observable<User[]>{
     return this.http.put<User>(this.ourURL+ "/" + id, JSON.stringify(data),this.httpOption)
     .pipe(
@@ -32,6 +33,24 @@ export class AuthenticateService {
       catchError(this.userData)
     )
 
+  }
+
+  //CREATING USER
+  createUser(data:any): Observable<User[]>{
+    return this.http.post<User>(this.ourURL,JSON.stringify(data),this.httpOption)
+    .pipe(
+      retry(1),
+      catchError(this.userData)
+    )
+  }
+
+  //DELETING USER
+  deleteUser(id:number){
+    return this.http.delete<User>(this.ourURL+ "/" + id, this.httpOption)
+    .pipe(
+      retry(1),
+      catchError(this.userData)
+    )
   }
 
   //FOR SHARING DATA
