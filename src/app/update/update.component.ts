@@ -12,6 +12,11 @@ import { User } from '../user';
 export class UpdateComponent implements OnInit {
 
   public userData:User|any = [];
+
+  //INTERFACE
+  showSuccess=false;
+  showFailed=false;
+
 //added this if it broke change I guess
   userNAME:string = "";
   userPASS:string = "";
@@ -42,6 +47,20 @@ export class UpdateComponent implements OnInit {
 
   }
  updateUser(){
+  if(this.userNAME=="" || this.userPASS=="" || this.userEMAIL=="" || this.userNICKNAME==""){
+    this.showFailed=true;
+    this.showSuccess=false;
+  }
+  else {
+    this.userData.username=this.userNAME;
+    this.userData.password=this.userPASS;
+    this.userData.email=this.userEMAIL;
+    this.userData.nickname=this.userNICKNAME;
+    this.userData.about=this.userABOUT;
+    this.showSuccess=true;
+    this.showFailed=false;
+    }
+
     console.log(this.userData)
    return this.auth.updateUser(this.USERID,this.userData)
     .subscribe(data =>{
@@ -50,6 +69,7 @@ export class UpdateComponent implements OnInit {
       console.log(this.userData.password)
       console.log(this.userData.email)
       console.log(this.userData.nickname)
+      console.log(this.userData.about)
     })
   }
 }

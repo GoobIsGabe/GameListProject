@@ -28,7 +28,7 @@ httpOption = {
   getUsers(): Observable<User[]>{
     return this.http.get<User[]>(this.ourURL);
   }
- 
+ //Getting user
   updateUser(id:number,data:any): Observable<User[]>{
  return this.http.put<User>(this.ourURL+ "/" + id, JSON.stringify(data),this.httpOption)
     .pipe(
@@ -43,11 +43,21 @@ httpOption = {
          catchError(this.userData)
        )
      }
+  //getting game
   getGames(): Observable<Game[]>{
     return this.http.get<Game[]>(this.ourgamesURL);
   }
   updateGame(){
 
+  }
+
+  //DELETING USER
+  deleteUser(id:number){
+    return this.http.delete<User>(this.ourURL+ "/" + id, this.httpOption)
+    .pipe(
+      retry(1),
+      catchError(this.userData)
+    )
   }
 
   //FOR SHARING DATA
