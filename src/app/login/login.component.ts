@@ -43,6 +43,15 @@ export class LoginComponent implements OnInit {
   loginUser(){
     for(let i=0; i<this.userData.length;i++){
       if((this.userNAME == this.userData[i].username) && (this.userPASS == this.userData[i].password)){
+  if(this.userData[i].userType=="admin")
+        {
+        //ADMIN
+        
+        }
+        else{
+          //USER NAVBAR 
+
+        }
         console.log("SUCCESS");
         this.showProfile=true;
         this.showLogin=false;

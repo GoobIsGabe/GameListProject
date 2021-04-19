@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthenticateService } from '../authenticate.service';
+import { User } from '../user';
 
 @Component({
   selector: 'app-navbar',
@@ -6,10 +8,25 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
+  public userData:User|any = [];
 
-  constructor() { }
+//INTERFACE
+  public showProfile=false;
+  public showUpdate=false;
+  public isAdmin=false;
+
+  public USERTYPE="";
+
+  constructor(private auth: AuthenticateService) { }
 
   ngOnInit(): void {
+    this.userData = this.auth.getData();
+    this.USERTYPE = this.userData.userType;  
+    if(this.USERTYPE=="admin"){
+      this.isAdmin=true;
+    }
+    else{
+    }
   }
   
 

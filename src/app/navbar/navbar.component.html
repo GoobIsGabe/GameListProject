@@ -9,10 +9,17 @@
           loading="lazy" />
       </button>
       <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+<!--                <button *ngIf="isAdmin"  ngbDropdownItem>View Users</button> -->
+      <a routerLink="/viewAll">View All Users</a>
         <a routerLink="/viewProfile"><button ngbDropdownItem>View Profile</button></a>
         <a routerLink="/updateProfile"><button ngbDropdownItem>Edit Profile</button></a>
         <a href=""> <button ngbDropdownItem>Logout</button></a>
       </div>
+ <div class="container">
+              <div class="jumbotron">
+                <h1>GameListProject</h1>
+                <p>Gamers are the future</p>
+              </div>
     </div>
-    <a routerLink="/viewAll">View All Users</a>
+
   </div>
