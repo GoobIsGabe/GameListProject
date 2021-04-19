@@ -26,7 +26,7 @@ public class Game implements Serializable{
 	private long user_id;
 	private String gamename;
 	private String gameplatform;
-	private String progress; //various phrases to determine progress bar length i.e. "just started", "done"
+	private int progress; //various phrases to determine progress bar length i.e. "just started", "done"
 	private String thoughts;
 	private Date started; //started playing
 
@@ -37,7 +37,7 @@ public class Game implements Serializable{
 	}
 	
 
-	public Game(long id, long user_id, String gamename, String gameplatform, String progress, String thoughts,
+	public Game(long id, long user_id, String gamename, String gameplatform, int progress, String thoughts,
 			Date started, User user) {
 		this.id = id;
 		this.user_id = user_id;
@@ -84,11 +84,11 @@ public class Game implements Serializable{
 		this.gameplatform = gameplatform;
 	}
 	@Column(name = "progress", nullable = false)
-	public String getProgress() {
+	public int getProgress() {
 		return progress;
 	}
 
-	public void setProgress(String progress) {
+	public void setProgress(int progress) {
 		this.progress = progress;
 	}
 	@Column(name = "thoughts", nullable = false)

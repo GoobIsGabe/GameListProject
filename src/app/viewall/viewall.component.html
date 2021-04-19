@@ -1,4 +1,4 @@
-<table class="table table-striped">
+<div class="container"><table class="table table-striped">
     <thead>
         <tr>
             <th scope="col">Username</th>
@@ -12,12 +12,13 @@
         <tr *ngFor="let user of data ; index as i">
             <td>{{ user.username }}</td>
             <td>{{ user.nickname }}</td>
-            <td>{{ user.userType }}</td>
+            <td><p class="badge badge-danger">{{ user.userType }}</p></td>
             <td>{{ user.about }}</td>
-            <td>{{ user.email }}</td>
+            <td><a href="mailto:#">{{ user.email }}</a></td>
         </tr>
     </tbody>
 </table>
+</div>
 <!-- <table class="table table-striped">
     <thead>
     <tr>
