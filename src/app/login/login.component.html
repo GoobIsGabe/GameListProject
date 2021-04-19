@@ -3,7 +3,6 @@
 <meta charset="ISO-8859-1">
 <title>ERS LOGIN</title>
 <!-- BOOTSTRAP -->
- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 </head>
 <body>
 
@@ -29,14 +28,12 @@
 	</div>
 	
 	<div class="checkbox">
-		<label><input type="checkbox"> Remember me</label>
+		
 	</div>
 	<button (click)="loginUser()" type="button" class="btn btn-info btn-lg">Login</button>
 </form>
 </div>
-
-<app-profile *ngIf="showProfile"></app-profile>
-
+<app-navbar *ngIf="showNavbar"></app-navbar>
 
 </body>
 </html>

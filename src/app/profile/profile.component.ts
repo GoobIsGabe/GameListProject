@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { updateNamespaceExportDeclaration } from 'typescript';
 import { AuthenticateService } from '../authenticate.service';
 import { LoginComponent } from '../login/login.component';
 import { User } from '../user';

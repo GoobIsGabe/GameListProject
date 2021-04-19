@@ -20,10 +20,9 @@ export class LoginComponent implements OnInit {
  
   
   //Interface
-  public showProfile = false;
+  public showNavbar = false;
   public showLogin = true;
   public showDenied = false;
-
 
 
   constructor(config: NgbModalConfig, private modalService: NgbModal, private auth: AuthenticateService) {
@@ -43,11 +42,20 @@ export class LoginComponent implements OnInit {
   loginUser(){
     for(let i=0; i<this.userData.length;i++){
       if((this.userNAME == this.userData[i].username) && (this.userPASS == this.userData[i].password)){
-        console.log("SUCCESS");
-        this.showProfile=true;
-        this.showLogin=false;
+        if(this.userData[i].userType=="admin")
+        {
+        //ADMIN
+        
+        }
+        else{
+          //USER NAVBAR 
 
+        }
+        console.log("SUCCESS");
+        this.showNavbar=true;
+        this.showLogin=false;
         this.auth.setData(this.userData[i]);
+
       }
       else{
         this.showDenied=true;
