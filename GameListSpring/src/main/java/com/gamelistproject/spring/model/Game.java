@@ -14,6 +14,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 
 @Entity
@@ -98,6 +99,7 @@ public class Game implements Serializable{
 	public void setThoughts(String thoughts) {
 		this.thoughts = thoughts;
 	}
+
 	@Column(name = "started", nullable = false)
 	public Date getStarted() {
 		return started;

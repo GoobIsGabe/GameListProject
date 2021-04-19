@@ -14,7 +14,7 @@ export class ViewallComponent implements OnInit {
   constructor(private http: HttpClient) {
     
   }
- 
+ //for users
   getData(){
     const url ='http://localhost:9095/api/v2/users'
     this.http.get(url).subscribe((res)=>{
@@ -23,8 +23,18 @@ export class ViewallComponent implements OnInit {
     })
   }
 
+  //for games
+  getData2(){
+    const url ='http://localhost:9095/api/v2/games'
+    this.http.get(url).subscribe((res)=>{
+      this.data = res
+      console.log(this.data)
+    })
+  }
+
   ngOnInit(): void {
     this.getData()
+    this.getData2()
   }
 
 }
