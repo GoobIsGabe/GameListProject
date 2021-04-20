@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthenticateService } from '../authenticate.service';
 import { User } from '../user';
 
@@ -10,15 +11,17 @@ import { User } from '../user';
 export class NavbarComponent implements OnInit {
   
   public userData:User|any = [];
-
+  public userDatas:User|any = [];
+  userNAME:any="";
+  
   //INTERFACE
   public showProfile=false;
   public showUpdate=false;
   public isAdmin=false;
-
+  public showSearch=false;
   public USERTYPE="";
 
-  constructor(private auth: AuthenticateService) { }
+  constructor(private auth: AuthenticateService, private router: Router) { }
 
   ngOnInit(): void {
     this.userData = this.auth.getData();
@@ -28,7 +31,15 @@ export class NavbarComponent implements OnInit {
     }
     else{
     }
+    this.auth.getUsers()
+    .subscribe((data:User[]) => {
+      this.userDatas = data;
+    }); 
   }
+
+ searchUser(){
+      this.router.navigate(['search']);
+}
 
   showProf(){
     this.showProfile=true;

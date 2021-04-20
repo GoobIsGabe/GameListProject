@@ -1,9 +1,13 @@
 <html>
+
 <head>
-<meta charset="ISO-8859-1">
-<title>ERS LOGIN</title>
-<!-- BOOTSTRAP -->
+	<meta charset="ISO-8859-1">
+	<title>GameHub LOGIN</title>
+	<!-- BOOTSTRAP -->
+	<!-- This here made the UI tiny-ish -->
+	<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"> -->
 </head>
+
 <body>
 <router-outlet></router-outlet>
 <!--LOGIN FORM-->
@@ -13,27 +17,26 @@
 		<div *ngIf="showDenied" class="alert alert-danger">
 			<strong>Denied!</strong> Invalid username or password, please try again.
 		</div>
-	</div>
- 	<h2>Login</h2>
-	<form action="" method="post">
-	
-	<div class="form-group">
-	<label for="username">Username:</label>
-	<input [(ngModel)]="userNAME" type="text" class="form-control"  placeholder="Enter Username" name="username">
-	</div>
+		<h2>Login</h2>
+		<form action="" method="post">
 
-	<div class="from-group">
-	<label for="pwd">Password:</label>
-	<input [(ngModel)]="userPASS" type="password" class="form-control"  placeholder="Enter Password" name="password">
+			<div class="form-group">
+				<label for="username">Username:</label>
+				<input [(ngModel)]="userNAME" type="text" class="form-control" placeholder="Enter Username"
+					name="username">
+			</div>
+
+			<div class="form-group">
+				<label for="pwd">Password:</label>
+				<input [(ngModel)]="userPASS" type="password" class="form-control" placeholder="Enter Password"
+					name="password">
+			</div>
+			<br>
+			<button (click)="loginUser()" type="button" class="btn btn-info btn-lg">Login</button>
+			<button (click)="registerUser()" type="button" class="btn btn-info btn-lg">Register</button>
+		</form>
 	</div>
-	
-	<div class="checkbox">
-		
-	</div>
-	<button (click)="loginUser()" type="button" class="btn btn-info btn-lg">Login</button>
-</form>
 </div>
-
-
 </body>
+
 </html>

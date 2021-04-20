@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
-import { User } from './user';
 import { retry } from 'rxjs/operators';
 import {catchError} from 'rxjs/operators'; 
+import { User } from './user';
+import { Game } from './game';
 
 @Injectable({
   providedIn: 'root'
@@ -12,13 +13,15 @@ export class AuthenticateService {
   
   //REST SERVER
   private ourURL = "http://localhost:9095/api/v2/users";
-  httpOption = {
+  private ourgamesURL = "http://localhost:9095/api/v2/games";
+httpOption = {
     headers: new HttpHeaders({
       'Content-Type':'application/json'
     })
   }
   //DATA
   userData:User | any;
+  gameData:Game | any;
   constructor(private http: HttpClient) { }
 
   //GETTING USER
@@ -56,11 +59,13 @@ export class AuthenticateService {
   //FOR SHARING DATA
   setData(data: any){
     this.userData=data;
+    this.gameData=data;
   }
 
   getData(){
-    return this.userData;
+    return this.userData, this.gameData;
   }
+
 
   //Error handling
 

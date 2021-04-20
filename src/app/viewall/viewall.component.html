@@ -1,0 +1,44 @@
+<div class="container"><table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">Username</th>
+            <th scope="col">Nickname</th>
+            <th scope="col">Type</th>
+            <th scope="col">About</th>
+            <th scope="col">Email</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let user of data ; index as i">
+            <td>{{ user.username }}</td>
+            <td>{{ user.nickname }}</td>
+            <td><p class="badge badge-danger">{{ user.userType }}</p></td>
+            <td>{{ user.about }}</td>
+            <td><a href="mailto:#">{{ user.email }}</a></td>
+        </tr>
+    </tbody>
+</table>
+</div>
+<!-- <table class="table table-striped">
+    <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col" sortable="username" (sort)="onSort($event)">Username</th>
+      <th scope="col" sortable="nickname" (sort)="onSort($event)">Nickname</th>
+      <th scope="col" sortable="type" (sort)="onSort($event)">Type</th>
+      <th scope="col" sortable="email" (sort)="onSort($event)">email</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let country of countries">
+      <th scope="row">{{ User.id }}</th>
+      <td>
+        <img [src]="'https://upload.wikimedia.org/wikipedia/commons/' + country.flag" class="mr-2" style="width: 20px">
+        {{ user.name }}
+      </td>
+      <td>{{ user.nickname}}</td>
+      <td>{{ user.type}}</td>
+      <td>{{ user.email}}</td>
+    </tr>
+    </tbody>
+  </table> -->

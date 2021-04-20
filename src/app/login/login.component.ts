@@ -55,6 +55,10 @@ export class LoginComponent implements OnInit {
     }
 
  }
+ registerUser(){
+   this.router.navigate(['register']);
+   this.showLogin=false;
+ }
  
   open(content: any) {
     this.modalService.open(content, {centered: true});

@@ -10,6 +10,9 @@ import { FormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NavbarComponent } from './navbar/navbar.component';
 import { UpdateComponent } from './update/update.component';
+import { ViewallComponent } from './viewall/viewall.component';
+import { RegisterComponent } from './register/register.component';
+import { SearchComponent } from './search/search.component';
 
 
 
@@ -20,6 +23,9 @@ import { UpdateComponent } from './update/update.component';
     LoginComponent,
     NavbarComponent,
     UpdateComponent,
+    ViewallComponent,
+    RegisterComponent,
+    SearchComponent,
     
    
   ],

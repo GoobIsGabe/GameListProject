@@ -1,0 +1,57 @@
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>GameHub REGISTER</title>
+<!-- BOOTSTRAP -->
+<!-- This here made the UI tiny-ish -->
+ <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"> -->
+</head>
+<body>
+
+<!--LOGIN FORM-->
+<div *ngIf="showRegister" class="container">
+	<div>
+		<!--DENIED-->
+		<div *ngIf="showDenied" class="alert alert-danger">
+			<strong>Denied!</strong> Invalid username or password, please try again.
+		</div>
+	</div>
+ 	<h2>Register</h2>
+	<form action="" method="post">
+	
+	<div class="form-group">
+	<label for="username">Username:</label>
+	<input [(ngModel)]="userNAME" type="text" class="form-control"  placeholder="Enter Username" name="username">
+	</div>
+
+	<div class="form-group">
+	<label for="pwd">Password:</label>
+	<input [(ngModel)]="userPASS" type="password" class="form-control"  placeholder="Enter Password" name="password">
+	</div>
+
+    <div class="form-group">
+        <label for="cpwd">Password:</label>
+        <input [(ngModel)]="confirmPASS" type="password" class="form-control"  placeholder="Confirm Password" name="cpassword">
+    </div>
+
+    <div class="form-group">
+        <label for="email">Password:</label>
+        <input [(ngModel)]="eMAIL" type="text" class="form-control"  placeholder="Email" name="email">
+    </div>
+
+    <div class="form-group">
+        <input [(ngModel)]="TYPE" type="radio" id="user" name="type" value="user">
+        <label for="user">User</label><br>
+        <input [(ngModel)]="TYPE" type="radio" id="admin" name="type" value="admin">
+        <label for="admin">Admin</label><br>
+    </div>
+	
+	<button (click)="createUser()" type="button" class="btn btn-info btn-lg">Register</button>
+</form>
+</div>
+
+<app-profile *ngIf="showProfile"></app-profile>
+
+
+</body>
+</html>
