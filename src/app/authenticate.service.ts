@@ -19,38 +19,31 @@ httpOption = {
       'Content-Type':'application/json'
     })
   }
-
   //DATA
   userData:User | any;
   gameData:Game | any;
   constructor(private http: HttpClient) { }
 
+  //GETTING USER
   getUsers(): Observable<User[]>{
     return this.http.get<User[]>(this.ourURL);
   }
- //Getting user
+  //UPDATING USER
   updateUser(id:number,data:any): Observable<User[]>{
- return this.http.put<User>(this.ourURL+ "/" + id, JSON.stringify(data),this.httpOption)
+    return this.http.put<User>(this.ourURL+ "/" + id, JSON.stringify(data),this.httpOption)
     .pipe(
       retry(1),
       catchError(this.userData)
     )
-  }
-  //getting game
-  getGames(): Observable<Game[]>{
-    return this.http.get<Game[]>(this.ourgamesURL);
-  }
-  updateGame(){
 
   }
 
-  
   //CREATING USER
-  createUser(data:any): Observable<User[]>{
+  createUser(data:any): Observable<User>{
     return this.http.post<User>(this.ourURL,JSON.stringify(data),this.httpOption)
     .pipe(
       retry(1),
-      catchError(this.userData)
+      catchError(this.errorHandl)
     )
   }
 
@@ -73,6 +66,8 @@ httpOption = {
     return this.userData, this.gameData;
   }
 
+
+  //Error handling
   errorHandl(error:any){
     let errorMessage='';
     if(error.error instanceof ErrorEvent){

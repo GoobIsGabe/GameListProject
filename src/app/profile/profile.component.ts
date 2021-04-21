@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { updateNamespaceExportDeclaration } from 'typescript';
 import { AuthenticateService } from '../authenticate.service';
 import { LoginComponent } from '../login/login.component';
 import { User } from '../user';
@@ -38,6 +37,7 @@ export class ProfileComponent implements OnInit {
   constructor(private auth: AuthenticateService, private login: LoginComponent) { }
 
   ngOnInit(): void {
+  
     this.userData = this.auth.getData();
     this.gameData = this.auth.getData();
     this.NICKNAME = this.userData.nickname;

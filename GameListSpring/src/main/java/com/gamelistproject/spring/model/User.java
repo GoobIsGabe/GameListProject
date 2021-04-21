@@ -21,7 +21,16 @@ public class User implements Serializable{
 	private String userType;
 	
 	private Set<Game> games;
+	//private Set<String> screenshots;
 
+
+	/*public Set<String> getScreenshots() {
+		return screenshots;
+	}
+
+	public void setScreenshots(Set<String> screenshots) {
+		this.screenshots = screenshots;
+	}*/
 
 	public User() {
 

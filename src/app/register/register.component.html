@@ -1,0 +1,71 @@
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>GameHub REGISTER</title>
+<!-- BOOTSTRAP -->
+<!-- This here made the UI tiny-ish -->
+ <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"> -->
+</head>
+<body>
+	<div class="text-center bg-dark text-white">
+<!--REGISTRATION FORM-->
+<div *ngIf="showRegister" class="container">
+	<br>
+	<a href=""><img src="https://gamelistproject.s3.us-east-2.amazonaws.com/GameHubLogo.png" width="500px" height="auto"
+	class="" /></a>
+ 	<h3 class="form-group col-xl-12">Register</h3>
+	<form action="" method="post">
+	
+	<div class="justify-content-center">
+	<label for="username">Username:</label><br>
+	<input [(ngModel)]="userNAME" type="text" class="form-control-lg text-center"  placeholder="Enter Username" name="username" style="width: 350px;">
+	</div>
+
+	<div class="form-group col-xl-12">
+	<label for="pwd">Password:</label><br>
+	<input [(ngModel)]="userPASS" type="password" class="form-control-lg text-center"  placeholder="Enter Password" name="password" style="width: 350px;">
+	</div>
+
+    <div class="form-group col-xl-12">
+        <label for="cpwd">Password:</label><br>
+        <input [(ngModel)]="confirmPASS" type="password" class="form-control-lg text-center"  placeholder="Confirm Password" name="cpassword" style="width: 350px;">
+    </div>
+
+    <div class="form-group col-xl-12">
+        <label for="email">Email:</label><br>
+        <input [(ngModel)]="eMAIL" type="text" class="form-control-lg text-center"  placeholder="Email" name="email" style="width: 350px;">
+    </div>
+
+	  <div class="form-group col-xl-12">
+        <label for="nickname">Nickname:</label><br>
+        <input [(ngModel)]="nick" type="text" class="form-control-lg text-center"  placeholder="nickname123" name="nickname" style="width: 350px;">
+    </div>
+
+    <div class="form-group col-xl-12">
+        <input [(ngModel)]="TYPE" type="radio" id="user" name="type" value="user">
+        <label for="user">User</label><br>
+        <input [(ngModel)]="TYPE" type="radio" id="admin" name="type" value="admin">
+        <label for="admin">Admin</label><br>
+    </div>
+	
+	<button (click)="createUser()" type="button" class="btn btn-info btn-lg">Register</button>
+</form>
+<br>
+<!--DENIED-->
+<div *ngIf="showDenied" class="alert alert-danger offset-xl-3 col-xl-6">
+	<strong>Denied!</strong> Please fill out everything.
+</div>
+
+<div *ngIf="showPassFailed" class="alert alert-danger offset-xl-3 col-xl-6">
+	<strong>Denied!</strong> Password did not match.
+</div>
+
+<div *ngIf="showEmailFailed" class="alert alert-danger offset-xl-3 col-xl-6">
+	<strong>Denied!</strong> Invalid email, needs "@".
+</div>
+<br>
+</div>
+</div>
+
+</body>
+</html>

@@ -1,29 +1,45 @@
 <router-outlet></router-outlet>
-<div class="row">
-  <div class="col text-center">
-    <div ngbDropdown class="d-inline-block">
-      <button class="btn" id="dropdownBasic1" ngbDropdownToggle>
+<!-- Navbar-->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark text-white">
+  <div class="container-fluid justify-content-between">
+    <!-- Left elements -->
+    <div class="d-flex">
+      <!-- Brand -->
 
-        <!-- Get user profile picture in here somehow -->
-        <img src="https://mdbootstrap.com/img/Photos/Avatars/img (31).jpg" class="rounded-circle" height="35" alt=""
-          loading="lazy" />
-      </button>
-      <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-        <!--                <button *ngIf="isAdmin"  ngbDropdownItem>View Users</button> -->
-        <button *ngIf="isAdmin" ngbDropdownItem>View Users</button>
-        <a routerLink="/viewProfile"><button ngbDropdownItem>View Profile</button></a>
-        <a routerLink="/updateProfile"><button ngbDropdownItem>Edit Profile</button></a>
-        <!-- Use these if breaks
-        <button (click)="showProf()" ngbDropdownItem>View Profile</button>
-        <button (click)="showUpd()" ngbDropdownItem>Edit Profile</button>  -->
-        <a href=""> <button ngbDropdownItem>Logout</button></a>
-      </div>
-      <div class="container">
-        <div class="jumbotron">
-          <h1>GameListProject</h1>
-          <p>Gamers are the future</p>
+        <img src="https://gamelistproject.s3.us-east-2.amazonaws.com/GameHubLogoCropped.png" height="40" alt=""
+          loading="lazy" style="margin-top: 2px;" />
+
+    </div>
+    <!-- Left elements -->
+
+    <!-- Center elements -->
+    <div class="col text-center bg-dark text-white">
+
+      <div ngbDropdown class="d-inline-block">
+        <button class="btn" id="dropdownBasic1" ngbDropdownToggle>
+  
+          <!-- Get user profile picture in here somehow -->
+          <img src="https://mdbootstrap.com/img/Photos/Avatars/img (31).jpg" class="rounded-circle" height="35" alt=""
+            loading="lazy" />
+        </button>
+        <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+          <!--                <button *ngIf="isAdmin"  ngbDropdownItem>View Users</button> -->
+          <a routerLink="/viewAll"><button *ngIf="isAdmin" ngbDropdownItem><button ngbDropdownItem>View
+                Users</button></button></a>
+          <a routerLink="/viewProfile"><button ngbDropdownItem>View Profile</button></a>
+          <a routerLink="/updateProfile"><button ngbDropdownItem>Edit Profile</button></a>
+          <!-- Use these if breaks
+          <button (click)="showProf()" ngbDropdownItem>View Profile</button>
+          <button (click)="showUpd()" ngbDropdownItem>Edit Profile</button>  -->
+          <a href=""> <button ngbDropdownItem>Logout</button></a>
         </div>
       </div>
-      <app-profile *ngIf="showProfile"></app-profile>
-      <app-update *ngIf="showUpdate"></app-update>
     </div>
+    <!-- Center elements -->
+
+    <!-- Right elements -->
+    <button (click)="searchUser()" type="button" class="btn btn-success">Search User</button>
+    <!-- Right elements -->
+  </div>
+</nav>
+<!-- Navbar -->

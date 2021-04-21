@@ -10,8 +10,8 @@ import { User } from '../user';
   styleUrls: ['./update.component.css']
 })
 export class UpdateComponent implements OnInit {
-
   public userData:User|any = [];
+
 
   //INTERFACE
   showSuccess=false;

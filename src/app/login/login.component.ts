@@ -25,7 +25,6 @@ export class LoginComponent implements OnInit {
   public showDenied = false;
 
 
-
   constructor(config: NgbModalConfig, private modalService: NgbModal, private auth: AuthenticateService, private router: Router) {
     // customize default values of modals used by this component tree
     config.backdrop = 'static';
@@ -55,6 +54,10 @@ export class LoginComponent implements OnInit {
       }
     }
 
+ }
+ registerUser(){
+   this.router.navigate(['register']);
+   this.showLogin=false;
  }
  
   open(content: any) {

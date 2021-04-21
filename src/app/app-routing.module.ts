@@ -5,14 +5,18 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { ProfileComponent } from './profile/profile.component';
 import { UpdateComponent } from './update/update.component';
 import { ViewallComponent } from './viewall/viewall.component';
+import { RegisterComponent } from './register/register.component';
+import { SearchComponent } from './search/search.component';
 
 const routes: Routes = [
-  {path: 'login', component:LoginComponent },
-  {path: 'home', component:NavbarComponent},
+  { path: 'login', component:LoginComponent },
+  { path: 'home', component:NavbarComponent},
   { path: 'viewProfile', component: ProfileComponent },
-  {path: 'updateProfile', component: UpdateComponent},
-  {path: 'logout', component: LoginComponent},
-  {path: 'viewAll', component: ViewallComponent}
+  { path: 'updateProfile', component: UpdateComponent},
+  { path: 'search', component: SearchComponent},
+  { path: 'logout', component: LoginComponent},
+  { path: 'viewAll', component: ViewallComponent},
+  { path: 'register', component: RegisterComponent}
  
 
 ];
