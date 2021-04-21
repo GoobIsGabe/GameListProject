@@ -35,6 +35,7 @@ httpOption = {
       retry(1),
       catchError(this.userData)
     )
+<<<<<<< HEAD
 
   }
 
@@ -47,6 +48,24 @@ httpOption = {
     )
   }
 
+=======
+  }
+  registerUser(data:any): Observable<User[]>{
+    return this.http.post<User>(this.ourURL, JSON.stringify(data),this.httpOption)
+       .pipe(
+         retry(1),
+         catchError(this.userData)
+       )
+     }
+  //getting game
+  getGames(): Observable<Game[]>{
+    return this.http.get<Game[]>(this.ourgamesURL);
+  }
+  updateGame(){
+
+  }
+
+>>>>>>> f0e8fed4e0db25eecdf568b6adc7b34b8df42948
   //DELETING USER
   deleteUser(id:number){
     return this.http.delete<User>(this.ourURL+ "/" + id, this.httpOption)

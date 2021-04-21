@@ -6,6 +6,7 @@
     <div class="d-flex">
       <!-- Brand -->
 
+<<<<<<< HEAD
         <img src="https://gamelistproject.s3.us-east-2.amazonaws.com/GameHubLogoCropped.png" height="40" alt=""
           loading="lazy" style="margin-top: 2px;" />
 
@@ -32,6 +33,26 @@
           <button (click)="showProf()" ngbDropdownItem>View Profile</button>
           <button (click)="showUpd()" ngbDropdownItem>Edit Profile</button>  -->
           <a href=""> <button ngbDropdownItem>Logout</button></a>
+=======
+        <!-- Get user profile picture in here somehow -->
+        <img src="https://mdbootstrap.com/img/Photos/Avatars/img (31).jpg" class="rounded-circle" height="35" alt=""
+          loading="lazy" />
+      </button>
+      <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+        <!--                <button *ngIf="isAdmin"  ngbDropdownItem>View Users</button> -->
+        <a routerLink="/viewAll"><button *ngIf="isAdmin" ngbDropdownItem>View Users</button></a> <!--Shouldn't this work?-->
+        <a routerLink="/viewProfile"><button ngbDropdownItem>View Profile</button></a>
+        <a routerLink="/updateProfile"><button ngbDropdownItem>Edit Profile</button></a>
+        <!-- Use these if breaks
+        <button (click)="showProf()" ngbDropdownItem>View Profile</button>
+        <button (click)="showUpd()" ngbDropdownItem>Edit Profile</button>  -->
+        <a href=""> <button ngbDropdownItem>Logout</button></a>
+      </div>
+      <div class="container">
+        <div class="jumbotron">
+          <h1>GameListProject</h1>
+          <p>Gamers are the future</p>
+>>>>>>> f0e8fed4e0db25eecdf568b6adc7b34b8df42948
         </div>
       </div>
     </div>

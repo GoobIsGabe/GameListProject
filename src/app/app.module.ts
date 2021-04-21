@@ -12,7 +12,10 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { UpdateComponent } from './update/update.component';
 import { ViewallComponent } from './viewall/viewall.component';
 import { RegisterComponent } from './register/register.component';
+<<<<<<< HEAD
 import { SearchComponent } from './search/search.component';
+=======
+>>>>>>> f0e8fed4e0db25eecdf568b6adc7b34b8df42948
 
 
 
@@ -25,7 +28,10 @@ import { SearchComponent } from './search/search.component';
     UpdateComponent,
     ViewallComponent,
     RegisterComponent,
+<<<<<<< HEAD
     SearchComponent,
+=======
+>>>>>>> f0e8fed4e0db25eecdf568b6adc7b34b8df42948
     
    
   ],

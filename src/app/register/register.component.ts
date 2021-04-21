@@ -12,14 +12,21 @@ import { User } from '../user';
 })
 export class RegisterComponent implements OnInit {
   //User Data
+<<<<<<< HEAD
   public userData:User|any = {};
+=======
+  public userData:User|any = [];
+>>>>>>> f0e8fed4e0db25eecdf568b6adc7b34b8df42948
  
   //INPUT
   userNAME:string = "";
   userPASS:string = "";
   confirmPASS:string = "";
   eMAIL:string = "";
+<<<<<<< HEAD
   nick:string = "";
+=======
+>>>>>>> f0e8fed4e0db25eecdf568b6adc7b34b8df42948
   TYPE:string = "";
  
   
@@ -27,9 +34,12 @@ export class RegisterComponent implements OnInit {
   public showProfile = false;
   public showRegister = true;
   public showDenied = false;
+<<<<<<< HEAD
   public showPassFailed =false;
   public showEmailFailed =false;
 
+=======
+>>>>>>> f0e8fed4e0db25eecdf568b6adc7b34b8df42948
 
 
 
@@ -41,6 +51,7 @@ export class RegisterComponent implements OnInit {
 
   //GETTING DATA FROM SERVER
   ngOnInit(): void {
+<<<<<<< HEAD
   
   }
  
@@ -79,6 +90,31 @@ export class RegisterComponent implements OnInit {
       else{
         this.showPassFailed=true;
       }
+=======
+    this.auth.getUsers()
+    .subscribe((data:User[]) => {
+      this.userData = data;
+    });
+  }
+
+  //login component currently does not disappear when New User clicked
+ 
+  registerUser(){
+    if((this.userPASS == this.confirmPASS) && (this.eMAIL.includes("@"))){
+      console.log("REGISTERED");
+      this.showProfile=true;
+      this.showRegister=false;
+
+      console.log(this.userData)
+      this.auth.registerUser(this.userData)
+        .subscribe(data =>{
+          console.log("UPDATED SUCCESSFULLY");
+          console.log(data)
+          console.log(this.userData.username)
+          console.log(this.userData.password)
+          console.log(this.userData.email)
+        })
+>>>>>>> f0e8fed4e0db25eecdf568b6adc7b34b8df42948
       }
     else{
       this.showDenied=true;
