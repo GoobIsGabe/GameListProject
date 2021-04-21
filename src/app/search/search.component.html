@@ -4,6 +4,10 @@
 				<input [(ngModel)]="userNAME" type="text" class="form-control-lg text-center" placeholder="Enter Username" name="username"><br><br>
         <button (click)="searchUser()" type="button" class="btn btn-info btn-lg">Search</button>&nbsp;&nbsp;&nbsp;&nbsp;
         <button (click)="back()" type="button" class="btn btn-info btn-lg">Back</button>
+        <!--FAILED-->
+    <div *ngIf="showFailed" class="alert alert-danger offset-xl-3 col-xl-6 form-control-lg text-center">
+      No users were found for your query.
+    </div>
 <!-- This is the template profile page read through the comments to see what may need to be implemented in the future-->
 <!DOCTYPE html>
 <html lang="en">
@@ -17,12 +21,12 @@
   </head>
   <body class="bg-dark text-white">
       <!-- Contains the whole profile page -->
-    <div class="container bg-dark text-white">
+    <div class="container bg-dark text-white" *ngIf="showSearched, showFailed">
       <hr>
       <div class="row">
         <div class="col-6">
             <!-- We'd like to have dynamic values in here retrieving from database {{Username}} and {{nickname}} + boolean{{nickname show}}-->
-          <h1>{{nickname}}</h1> <span>A.K.A. {{userNAME}}</span>
+          <h1>{{nickname}}</h1>
 			
         </div>
         <div class="col-6 text-right">
@@ -63,16 +67,18 @@
             <!-- again, another area to input in through the user sql -->
           <h2>Favourite Games</h2>
           <hr>
-          <div class="row" *ngFor="let refuser of uData.games; let i = index">
+         
+          <div class="row" *ngFor="let games of gData">
             <div class="col-6">
-              <h4>{{uData.games[i].gamename}}</h4>
+              <h4>{{games.gamename}}</h4>
+              
             </div>
             <div class="col-6">
                 <!-- Let's see if we could make this a dynamic value that will essentially take "current date" - "started date"-->
-              <h5 class="text-right"><span aria-hidden="true"></span> First played: {{uData.games[i].started}}<span> </span></h5>
+              <h5 class="text-right"><span aria-hidden="true"></span> First played: {{games.started}}<span> </span></h5>
             </div>
-          <h5><div class="col-6 col-lg-11"><span class="badge badge-secondary">{{uData.games[i].gameplatform}} </span></div></h5>
-          <div class="col-6 col-lg-11"><p>{{uData.games[i].thoughts}}</p></div>
+          <h5><div class="col-6 col-lg-11"><span class="badge badge-secondary">{{games.gameplatform}} </span></div></h5>
+          <div class="col-6 col-lg-11"><p>{{games.thoughts}}</p></div>
           <div class="col-lg-12"><hr></div>
         </div>
           
@@ -82,8 +88,8 @@
                     or some other table, but it should exist  lol {{game}} {{game.progress}}-->
           <h2>Most Completed Games</h2>
           <hr>
-          <div class="progress mt-4" *ngFor="let games of uData.games; let i = index">
-            <div class="progress-bar bg-success" role="progressbar" attr.aria-valuenow="{{uData.games[i].progress}}" aria-valuemin="0" aria-valuemax="100" attr.style="width: {{uData.games[i].progress}}%">{{uData.games[i].gamename}}</div>
+          <div class="progress mt-4" *ngFor="let games of gData">
+            <div class="progress-bar bg-success" role="progressbar" attr.aria-valuenow="{{games.progress}}" aria-valuemin="0" aria-valuemax="100" attr.style="width: {{games.progress}}%">{{games.gamename}}</div>
           </div>
         </div>
       </div>

@@ -41,42 +41,13 @@ export class SearchComponent implements OnInit {
     .subscribe((data:User[]) => {
       this.uData = data;
     });
-    // this.uData = this.auth.getData();
-    // this.gData = this.auth.getData();
-    // this.nickname = this.uData.nickname;
-
-    // this.USERNAME = this.userData.username;
-    // this.ABOUT = this.userData.about;
-    // this.EMAIL = this.userData.email;
-    // this.TYPE = this.userData.userType;
-
-    // this.PLATFORM = this.userData.games.gameplatform;
-    // this.PROGRESS = this.userData.games.progress;
-    // this.THOUGHTS = this.userData.games.thoughts;
-    // this.STARTED = this.userData.games.started;
-
-
-    // //logic for if a user doesn't have a favourite game
-    // try {
-    //   this.TOPFAVOURITE = this.userData.games[0].gamename;
-    //   this.TOPSTARTED = this.userData.games[0].started;
-    // }
-    // catch (e) {
-    //   e.message // errors
-    //   this.TOPFAVOURITE = "This user doesn't have a favourite game";
-    //   this.TOPSTARTED = "N/A";
-    // }
-
-
-    // const datepipe: DatePipe = new DatePipe('en-US');
-    // console.log(this.userData.games[0].started);
-    // this.TOPSTARTED = this.userData.games[0].started;
-
   }
 
 searchUser(){
   for(let i=0; i<this.uData.length;i++){
     if((this.userNAME == this.uData[i].username)){
+      this.showSearched = true;
+      this.showFailed = false;
       console.log("SUCCESS");
       console.log(this.uData[i]);
       // this.auth.setData(this.userData[i]);
@@ -85,8 +56,12 @@ searchUser(){
       this.about = this.uData[i].about;
       this.email = this.uData[i].email;
       this.type = this.uData[i].type;
-
-      this.refuser = this.uData[i];
+      for(let j=0; j<this.uData[i].games.length;j++){
+      this.gData[j] = this.uData[i].games[j];
+      
+      console.log(this.gData);
+      console.log(this.uData[i].games[j]);
+    }
 
       try {
         this.topfavourite = this.uData[i].games[0].gamename;
@@ -97,11 +72,14 @@ searchUser(){
         this.topfavourite = "This user doesn't have a favourite game";
         this.topstarted = "N/A";
       }
-      console.log(this.uData[i].games[0]);
-
+     // console.log(this.uData[i].games[0]);
+      // this.gData[i]=this.uData[i].games;
+      // console.log(this.gData[i]);
+      // console.log(this.uData[i].games.gamename);
     }
     else{
-     
+    // this.showFailed = true;
+     //this.showSearched = false;
     }
   }
 }
@@ -109,6 +87,6 @@ back(){
   this.route.navigate(['home'])
 }
 
-  
-
+public showSearched = false;
+public showFailed = false;
 }
