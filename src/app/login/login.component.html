@@ -9,34 +9,52 @@
 </head>
 
 <body>
-<router-outlet></router-outlet>
-<!--LOGIN FORM-->
-<div *ngIf="showLogin" class="container">
-	<div>
-		<!--DENIED-->
-		<div *ngIf="showDenied" class="alert alert-danger">
-			<strong>Denied!</strong> Invalid username or password, please try again.
-		</div>
-		<h2>Login</h2>
-		<form action="" method="post">
-
-			<div class="form-group">
-				<label for="username">Username:</label>
-				<input [(ngModel)]="userNAME" type="text" class="form-control" placeholder="Enter Username"
-					name="username">
-			</div>
-
-			<div class="form-group">
-				<label for="pwd">Password:</label>
-				<input [(ngModel)]="userPASS" type="password" class="form-control" placeholder="Enter Password"
-					name="password">
-			</div>
+	<router-outlet></router-outlet>
+	<div class="text-center bg-dark text-white">
+		<!--LOGIN FORM-->
+		<div *ngIf="showLogin" class="container">
 			<br>
-			<button (click)="loginUser()" type="button" class="btn btn-info btn-lg">Login</button>
-			<button (click)="registerUser()" type="button" class="btn btn-info btn-lg">Register</button>
-		</form>
+			<img src="https://gamelistproject.s3.us-east-2.amazonaws.com/GameHubLogo.png" width="500px" height="auto"
+				class="" />
+			<h3 class="form-group col-xl-12">Login</h3>
+			<form action="" method="post">
+
+				<div class="justify-content-center">
+					<label for="username">Username:</label><br>
+					<input [(ngModel)]="userNAME" type="text" class="form-control-lg text-center"
+						placeholder="Enter Username" name="username" style="width: 350px;">
+				</div>
+
+				<div class="from-group col-xl-12 align-items-xl-center">
+					<label for="pwd">Password:</label><br>
+					<input [(ngModel)]="userPASS" type="password" class="form-control-lg text-center"
+						placeholder="Enter Password" name="password" style="width: 350px;">
+				</div>
+				<br>
+				<button (click)="loginUser()" type="button" class="btn btn-info btn-lg col-xl-5">Login</button>
+			</form>
+			<div>
+				<!--DENIED-->
+				<br>
+				<div *ngIf="showDenied" class="alert alert-danger offset-xl-3 col-xl-6">
+
+					<strong>Denied!</strong> Invalid username or password, please try again.
+				</div>
+				<hr><br>
+				<button (click)="registerUser()" type="button" class="btn btn-info btn-lg col-xl-5">Register</button>
+			</div>
+		</div>
 	</div>
-</div>
+
+	<footer class="text-center bg-dark text-white">
+		<div class="container bg-dark text-white">
+			<div class="row">
+				<div class="col-12">
+					<p>Copyright © GameHub. All rights reserved.</p>
+				</div>
+			</div>
+		</div>
+	</footer>
 </body>
 
 </html>

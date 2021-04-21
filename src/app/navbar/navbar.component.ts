@@ -9,45 +9,44 @@ import { User } from '../user';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-  
-  public userData:User|any = [];
-  public userDatas:User|any = [];
-  userNAME:any="";
-  
+
+  public userData: User | any = [];
+  public userDatas: User | any = [];
+  userNAME: any = "";
+
   //INTERFACE
-  public showProfile=false;
-  public showUpdate=false;
-  public isAdmin=false;
-  public showSearch=false;
-  public USERTYPE="";
+  public showProfile = false;
+  public showUpdate = false;
+  public isAdmin = false;
+  public showSearch = false;
+  public USERTYPE = "";
 
   constructor(private auth: AuthenticateService, private router: Router) { }
 
   ngOnInit(): void {
     this.userData = this.auth.getData();
-    this.USERTYPE = this.userData.userType;  
-    if(this.USERTYPE=="admin"){
-      this.isAdmin=true;
+    this.USERTYPE = this.userData.userType;
+    if (this.USERTYPE == "admin") {
+      this.isAdmin = true;
     }
-    else{
+    else {
     }
     this.auth.getUsers()
-    .subscribe((data:User[]) => {
-      this.userDatas = data;
-    }); 
+      .subscribe((data: User[]) => {
+        this.userDatas = data;
+      });
   }
 
- searchUser(){
-      this.router.navigate(['search']);
-}
-
-  showProf(){
-    this.showProfile=true;
-    this.showUpdate=false;
-  }
-  showUpd(){
-    this.showUpdate=true;
-    this.showProfile=false;
+  searchUser() {
+    this.router.navigate(['search']);
   }
 
+  showProf() {
+    this.showProfile = true;
+    this.showUpdate = false;
+  }
+  showUpd() {
+    this.showUpdate = true;
+    this.showProfile = false;
+  }
 }

@@ -1,6 +1,190 @@
-<h2>Search User</h2>
-<label for="username">Enter Username:</label>
-				<input [(ngModel)]="userNAME" type="text" class="form-control" placeholder="Enter Username" name="username">
-        <button (click)="searchUser()" type="button" class="btn btn-info btn-lg">Search</button>
+<app-navbar></app-navbar>
+<body class="text-center bg-dark text-white"><h2>Search User</h2>
+
+				<input [(ngModel)]="userNAME" type="text" class="form-control-lg text-center" placeholder="Enter Username" name="username"><br><br>
+        <button (click)="searchUser()" type="button" class="btn btn-info btn-lg">Search</button>&nbsp;&nbsp;&nbsp;&nbsp;
         <button (click)="back()" type="button" class="btn btn-info btn-lg">Back</button>
-<h3>{{nickname}}</h3>
+<!-- This is the template profile page read through the comments to see what may need to be implemented in the future-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Not sure if we'd like to have a dynamic title y'know like a {{user's}} page -->
+    <title>{{refuser}} Profile</title>
+
+  </head>
+  <body class="bg-dark text-white">
+      <!-- Contains the whole profile page -->
+    <div class="container bg-dark text-white">
+      <hr>
+      <div class="row">
+        <div class="col-6">
+            <!-- We'd like to have dynamic values in here retrieving from database {{Username}} and {{nickname}} + boolean{{nickname show}}-->
+          <h1>{{nickname}}</h1> <span>A.K.A. {{userNAME}}</span>
+			
+        </div>
+        <div class="col-6 text-right">
+            <!-- Would like to have red (danger) for admins and blue (info) for users-->
+          <p class="badge badge-danger" >{{type}}</p>
+        </div>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col-md-8 col-sm-12">
+          <div class="media">
+              <!-- Make that refer to the image again lol opp- maybe I got it -->
+              <!-- This will be the profile image each user can upload and can be stored in this folder...just got to figure out how -->
+            <img class="mr-3" src="../../assets/images/115X115.gif" alt="Generic placeholder profile image">
+            <div class="media-body">
+                <!-- About me can be some sort of "text" entity column in our user table -->
+              <h5 class="mt-0">About Me</h5>
+              {{about}}
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-12">
+          <div class="row justify-content-md-around m-1">
+            <address>
+                <!-- Maybe this could be something else, but for now, yeh this is something to store in the user table as well -->
+              <strong>Favourite Game</strong><br>
+              <b>{{topfavourite}}</b><br>
+              <span>First played: </span><span> <i>{{topstarted}}</i></span><br>
+              <!-- optional boolean to show email in sql -->
+              <a href="mailto:#">{{email}}</a>
+            </address>
+          </div>
+        </div>
+      </div>
+      <hr>
+      <div class="row" >
+        <div class="col-md-6 col-sm-12">
+            <!-- again, another area to input in through the user sql -->
+          <h2>Favourite Games</h2>
+          <hr>
+          <div class="row" *ngFor="let refuser of uData.games; let i = index">
+            <div class="col-6">
+              <h4>{{uData.games[i].gamename}}</h4>
+            </div>
+            <div class="col-6">
+                <!-- Let's see if we could make this a dynamic value that will essentially take "current date" - "started date"-->
+              <h5 class="text-right"><span aria-hidden="true"></span> First played: {{uData.games[i].started}}<span> </span></h5>
+            </div>
+          <h5><div class="col-6 col-lg-11"><span class="badge badge-secondary">{{uData.games[i].gameplatform}} </span></div></h5>
+          <div class="col-6 col-lg-11"><p>{{uData.games[i].thoughts}}</p></div>
+          <div class="col-lg-12"><hr></div>
+        </div>
+          
+      </div>
+        <div class="col-md-6 col-sm-12">
+            <!--    This would be a tricky section, I'm not sure if it would be still in the users table
+                    or some other table, but it should exist  lol {{game}} {{game.progress}}-->
+          <h2>Most Completed Games</h2>
+          <hr>
+          <div class="progress mt-4" *ngFor="let games of uData.games; let i = index">
+            <div class="progress-bar bg-success" role="progressbar" attr.aria-valuenow="{{uData.games[i].progress}}" aria-valuemin="0" aria-valuemax="100" attr.style="width: {{uData.games[i].progress}}%">{{uData.games[i].gamename}}</div>
+          </div>
+        </div>
+      </div>
+      <hr>
+      <!-- We can probably remove this...as a matter of fact... I left off here
+      <ng-container *ngIf="show">
+          <input type="button" name="Hi" text="hide"> 
+      <h2>Work Experience</h2>
+      <hr>
+      <div class="row">
+        <div class="col-md-6 col-sm-12">
+          <div class="row">
+            <div class="col-5">
+              <h4>ABC Corp.</h4>
+            </div>
+            <div class="col-6">
+              <h5 class="text-right"><span aria-hidden="true"></span> Jan 2002 - Dec 2006</h5>
+            </div>
+          </div>
+          <h5><span class="badge badge-secondary">Web Developer</span></h5>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint, recusandae, corporis, tempore nam fugit deleniti sequi excepturi quod repellat laboriosam soluta laudantium amet dicta non ratione distinctio nihil dignissimos esse!</p>
+          <ul>
+            <li>Lorem ipsum dolor sit amet.</li>
+            <li>Lorem ipsum dolor sit amet, consectetur.</li>
+            <li>Lorem ipsum dolor sit amet, consectetur adipisicing.</li>
+          </ul>
+        </div>
+        <div class="col-md-6 col-sm-12">
+          <div class="row">
+            <div class="col-5">
+              <h4>XYZ Corp.</h4>
+            </div>
+            <div class="col-6">
+              <h5 class="text-right"><span aria-hidden="true"></span> Jan 2002 - Dec 2006</h5>
+            </div>
+          </div>
+          <h5><span class="badge badge-secondary">Senior Web Developer</span></h5>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint, recusandae, corporis, tempore nam fugit deleniti sequi excepturi quod repellat laboriosam soluta laudantium amet dicta non ratione distinctio nihil dignissimos esse!</p>
+          <ul>
+            <li>Lorem ipsum dolor sit amet.</li>
+            <li>Lorem ipsum dolor sit amet, consectetur.</li>
+            <li>Lorem ipsum dolor sit amet, consectetur adipisicing.</li>
+          </ul>
+        </div>
+      </div>
+      <hr>
+    </ng-container> -->
+    <!--    This will be where users will be able to showcase their pictures, 
+            we hopefully can store them in per say an archive such as folders
+            e.x. assets/{{username}}/screenshot1.png-->
+      <h2>Screenshots</h2>
+      <hr>
+      <div class="container">
+        <div class="row text-center">
+          <div class="col-sm-4 col-12 p-0"><img class="img-thumbnail"  src="../../assets/images/300X200.gif" alt=""></div>
+          <div class="col-sm-4 col-12 p-0"><img class="img-thumbnail"  src="../../assets/images/300X200.gif" alt=""></div>
+          <div class="col-sm-4 col-12 p-0"><img class="img-thumbnail"  src="../../assets/images/300X200.gif" alt=""></div>
+        </div>
+        <div class="row text-center">
+          <div class="col-sm-4 col-12 p-0"><img class="img-thumbnail"  src="../../assets/images/300X200.gif" alt=""></div>
+          <div class="col-sm-4 col-12 p-0"><img class="img-thumbnail"  src="../../assets/images/300X200.gif" alt=""></div>
+          <div class="col-sm-4 col-12 p-0"><img class="img-thumbnail"  src="../../assets/images/300X200.gif" alt=""></div>
+        </div>
+      </div>
+
+      <hr>
+      <h2>Contact</h2>
+      <hr>
+      <!-- contact who? let's discuss this as to who would get this, and who would send this -->
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-8  col-12 jumbotron bg-dark text-white">
+            <form>
+              <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" class="form-control" id="name" name="name" placeholder="Name">
+              </div>
+              <div class="form-group">
+                <label for="email">E-Mail</label>
+                <input type="email" class="form-control" id="email" name="email" placeholder="Email Address" aria-describedby="emailHelp">
+                <span id="emailHelp" class="form-text text-muted" style="display: none;">Please enter a valid e-mail address.</span>
+              </div>
+              <div class="form-group">
+                <label for="message">Message</label>
+                <textarea rows="10" cols="100" class="form-control" id="message" name="message" placeholder="Message" aria-describedby="messageHelp"></textarea>
+                <span id="messageHelp" class="form-text text-muted" style="display: none;">Please enter a message.</span>
+              </div>
+              <div class="text-center">
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+     
+    </div>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="../js/jquery-3.3.1.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="../js/popper.min.js"></script>
+    <script src="../js/bootstrap-4.3.1.js"></script>
+  </body>
+</html>
+<br></body>
