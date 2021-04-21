@@ -12,13 +12,14 @@ import { User } from '../user';
 })
 export class RegisterComponent implements OnInit {
   //User Data
-  public userData:User|any = [];
+  public userData:User|any = {};
  
   //INPUT
   userNAME:string = "";
   userPASS:string = "";
   confirmPASS:string = "";
   eMAIL:string = "";
+  nick:string = "";
   TYPE:string = "";
  
   
@@ -26,6 +27,9 @@ export class RegisterComponent implements OnInit {
   public showProfile = false;
   public showRegister = true;
   public showDenied = false;
+  public showPassFailed =false;
+  public showEmailFailed =false;
+
 
 
 
@@ -37,27 +41,44 @@ export class RegisterComponent implements OnInit {
 
   //GETTING DATA FROM SERVER
   ngOnInit(): void {
-    this.auth.getUsers()
-    .subscribe((data:User[]) => {
-      this.userData = data;
-    });
+  
   }
  
   createUser(){
-    if((this.userPASS == this.confirmPASS) && (this.eMAIL.includes("@"))){
-      console.log("REGISTERED");
-      this.showProfile=true;
-      this.showRegister=false;
+    if( (this.userNAME != "") && (this.eMAIL != "") && (this.nick != "") && (this.userPASS != "") && (this.TYPE != "")){
+      this.showDenied=false;
+      this.showEmailFailed=false;
+      this.showPassFailed=false;
+      if((this.userPASS == this.confirmPASS)){
+        this.showDenied=false;
+        this.showEmailFailed=false;
+        this.showPassFailed=false;
+        if((this.eMAIL.includes("@"))){
+          this.showDenied=false;
+          this.showEmailFailed=false;
+          this.showPassFailed=false;
 
-      console.log(this.userData)
+          this.userData.username = this.userNAME;
+          this.userData.password = this.userPASS;
+          this.userData.email = this.eMAIL;
+          this.userData.nickname = this.nick;
+          this.userData.userType = this.TYPE;
+      console.log(this.userData);
+      console.log("REGISTERED");
+
       this.auth.createUser(this.userData)
-        .subscribe(data =>{
-          console.log("UPDATED SUCCESSFULLY");
-          console.log(data)
-          console.log(this.userData.username)
-          console.log(this.userData.password)
-          console.log(this.userData.email)
+      .subscribe(data =>{
+          console.log(data);
+          
         })
+        }
+        else{
+          this.showEmailFailed=true;
+        }
+      }
+      else{
+        this.showPassFailed=true;
+      }
       }
     else{
       this.showDenied=true;

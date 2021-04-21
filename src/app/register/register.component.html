@@ -13,8 +13,18 @@
 	<div>
 		<!--DENIED-->
 		<div *ngIf="showDenied" class="alert alert-danger">
-			<strong>Denied!</strong> Invalid username or password, please try again.
+			<strong>Denied!</strong> Please fill out everything.
 		</div>
+
+		<div *ngIf="showPassFailed" class="alert alert-danger">
+			<strong>Denied!</strong> Password did not match.
+		</div>
+
+		<div *ngIf="showEmailFailed" class="alert alert-danger">
+			<strong>Denied!</strong> Invalid email, needs "@".
+		</div>
+
+
 	</div>
  	<h2>Register</h2>
 	<form action="" method="post">
@@ -35,8 +45,13 @@
     </div>
 
     <div class="form-group">
-        <label for="email">Password:</label>
+        <label for="email">Email:</label>
         <input [(ngModel)]="eMAIL" type="text" class="form-control"  placeholder="Email" name="email">
+    </div>
+
+	  <div class="form-group">
+        <label for="nickname">Nickname:</label>
+        <input [(ngModel)]="nick" type="text" class="form-control"  placeholder="nickname123" name="nickname">
     </div>
 
     <div class="form-group">
@@ -50,7 +65,6 @@
 </form>
 </div>
 
-<app-profile *ngIf="showProfile"></app-profile>
 
 
 </body>

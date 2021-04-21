@@ -10,6 +10,7 @@ import { User } from '../user';
 })
 export class SearchComponent implements OnInit {
   public uData:User|any = [];
+  
   public nickname = ""
   public userNAME = ""
   constructor(private auth: AuthenticateService, private route: Router) { }
@@ -20,6 +21,7 @@ export class SearchComponent implements OnInit {
       this.uData = data;
     });
   }
+
 searchUser(){
   for(let i=0; i<this.uData.length;i++){
     if((this.userNAME == this.uData[i].username)){

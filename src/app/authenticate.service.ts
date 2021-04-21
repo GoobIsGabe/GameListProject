@@ -39,11 +39,11 @@ httpOption = {
   }
 
   //CREATING USER
-  createUser(data:any): Observable<User[]>{
+  createUser(data:any): Observable<User>{
     return this.http.post<User>(this.ourURL,JSON.stringify(data),this.httpOption)
     .pipe(
       retry(1),
-      catchError(this.userData)
+      catchError(this.errorHandl)
     )
   }
 
@@ -68,7 +68,6 @@ httpOption = {
 
 
   //Error handling
-
   errorHandl(error:any){
     let errorMessage='';
     if(error.error instanceof ErrorEvent){
